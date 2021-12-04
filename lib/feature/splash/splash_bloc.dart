@@ -4,7 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:injectable/injectable.dart';
 import 'package:meta/meta.dart';
-import 'package:netguru_flutter_template/app/routing/compass.dart';
+import 'package:flutter_app/app/routing/compass.dart';
 
 import '../main/main_screen.dart';
 
@@ -19,7 +19,7 @@ class SplashCubit extends Cubit<SplashState> {
   Future<void> _checkAuthorization() async {
     await Future.delayed(const Duration(seconds: 2));
     emit(SplashAuthorizedState());
-    _compass.replace(MainScreenRoute());
+    await _compass.replace(MainScreenRoute());
   }
 }
 

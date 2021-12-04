@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:netguru_flutter_template/app/s.dart';
-import 'package:netguru_flutter_template/feature/main/main_cubit.dart';
-import 'package:netguru_flutter_template/injection/injection.dart';
-import 'package:netguru_flutter_template/widget/custom_loading/custom_loading.dart';
-import 'package:netguru_flutter_template/values/app_theme.dart';
+import 'package:flutter_app/app/s.dart';
+import 'package:flutter_app/feature/main/main_cubit.dart';
+import 'package:flutter_app/injection/injection.dart';
+import 'package:flutter_app/widget/custom_loading/custom_loading.dart';
+import 'package:flutter_app/values/app_theme.dart';
 
 class MainScreenRoute extends MaterialPageRoute<bool> {
   MainScreenRoute() : super(builder: (_) => MainScreen());
@@ -18,13 +18,13 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   MainCubit? mainCubit;
-
   bool isLoading = false;
+  bool toggle = false;
 
   @override
   void initState() {
     mainCubit = getIt.get<MainCubit>();
-    mainCubit?.fetchListItems();
+    mainCubit?.fetchListItems(false);
     super.initState();
   }
 
@@ -40,7 +40,7 @@ class _MainScreenState extends State<MainScreen> {
         },
         builder: (BuildContext context, state) => Scaffold(
           appBar: AppBar(
-            title: Text(S.of(context).appName),
+            title: Text(S.of(context).appName, key: Key('appName'),),
             backgroundColor: context.primaryColor(),
           ),
           body: Center(
@@ -52,8 +52,9 @@ class _MainScreenState extends State<MainScreen> {
                   ListView(
                       children: state.list.map(
                     (s) {
-                      if (state.list.indexOf(s) % 2 == 0)
+                      if (state.list.indexOf(s) % 2 == 0) {
                         s = 'I dont like even numbers';
+                      }
                       return Card(
                         shape: RoundedRectangleBorder(
                             borderRadius:
@@ -81,6 +82,12 @@ class _MainScreenState extends State<MainScreen> {
               ],
             ),
           ),
+          floatingActionButton: FloatingActionButton(
+            onPressed: (){
+              toggle = !toggle;
+              mainCubit?.fetchListItems(toggle);
+            },
+            child: Icon(Icons.refresh),),
         ),
       ),
     );

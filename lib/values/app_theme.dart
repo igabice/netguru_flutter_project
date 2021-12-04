@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:netguru_flutter_template/values/app_colors.dart';
-import 'package:netguru_flutter_template/values/dimensions.dart';
+import 'package:flutter_app/values/app_colors.dart';
+import 'package:flutter_app/values/dimensions.dart';
 
 ThemeData lightTheme() => ThemeData(
       primaryColor: AppColors.primary,
@@ -32,35 +32,35 @@ TextTheme _textTheme({required bool isDark}) => TextTheme(
 TextStyle _titleTextStyle({required bool isDark}) => TextStyle(
       color: isDark ? AppColors.white : AppColors.black,
       fontWeight: FontWeight.w700,
-      fontSize: Dimensions.TITLE_TEXT_SIZE,
+      fontSize: Dimensions.titleTextSize,
     );
 
 TextStyle _subtitleTextStyle({required bool isDark}) => TextStyle(
       color: isDark ? AppColors.white : AppColors.black,
       fontWeight: FontWeight.w700,
-      fontSize: Dimensions.SUBTITLE_TEXT_SIZE,
+      fontSize: Dimensions.subTitleTextSize,
     );
 
 TextStyle _bodyText2Style({required bool isDark}) => TextStyle(
       color: isDark ? AppColors.white : AppColors.black,
-      fontSize: Dimensions.BODY_TEXT_SIZE,
+      fontSize: Dimensions.bodyTextSize,
     );
 
 const _captionTextStyle = TextStyle(
   color: AppColors.lightGrey,
-  fontSize: Dimensions.SMALL_TEXT_SIZE,
+  fontSize: Dimensions.smallTextSize,
 );
 
 TextStyle _buttonTextStyle({required bool isDark}) => TextStyle(
       color: isDark ? AppColors.white : AppColors.black,
       fontWeight: FontWeight.w600,
-      fontSize: Dimensions.BODY_TEXT_SIZE,
+      fontSize: Dimensions.bodyTextSize,
     );
 
 TextStyle _bodyText1Style({required bool isDark}) => TextStyle(
       color: isDark ? AppColors.white : AppColors.black,
       fontWeight: FontWeight.w500,
-      fontSize: Dimensions.BODY_BIG_TEXT_SIZE,
+      fontSize: Dimensions.bodyBigTextSize,
     );
 
 extension ThemeGetter on BuildContext {

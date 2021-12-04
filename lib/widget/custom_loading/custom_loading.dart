@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:netguru_flutter_template/values/app_theme.dart';
+import 'package:flutter_app/values/app_theme.dart';
 
 class CustomLoading extends StatelessWidget {
   CustomLoading({this.bgColor, this.valueColor});

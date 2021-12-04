@@ -1,38 +1,50 @@
+import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter/foundation.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
-import 'package:netguru_flutter_template/service/mock_api_service.dart';
+import 'package:meta/meta.dart';
+
+import 'package:flutter_app/service/mock_api_service.dart';
 
 @LazySingleton()
 class MainCubit extends Cubit<MainState> {
   MockApiService mockApiService;
 
-  MainCubit(this.mockApiService) : super(Init());
+   MainCubit(this.mockApiService) : super(Init());
 
-  void fetchListItems() async {
+
+  @override
+  void onTransition(Transition<Null, MainState> transition) {
+    print(transition);
+    super.onTransition(transition);
+  }
+
+  Future<void> fetchListItems(bool showError) async {
     emit(Loading());
-    (await mockApiService.getItems()).fold(
+    (await mockApiService.getItems(showError)).fold(
       (error) => emit(Error(error)),
       (list) => emit(Fetched(list)),
     );
   }
 }
 
-class MainState {}
+@immutable
+abstract class MainState extends Equatable {
+  @override
+  List<Object> get props => [];
+}
 
 class Init extends MainState {}
 
 class Loading extends MainState {}
 
 class Fetched extends MainState {
-  List<String> list;
+  final List<String> list;
 
   Fetched(this.list);
 }
 
 class Error extends MainState {
-  Exception error;
+  final Exception error;
 
   Error(this.error);
 }

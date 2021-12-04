@@ -1,4 +1,4 @@
-package com.netguru.netguru_flutter_template
+package com.gabice.flutter_app
 
 import io.flutter.embedding.android.FlutterActivity
 

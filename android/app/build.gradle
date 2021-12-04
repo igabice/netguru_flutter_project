@@ -38,7 +38,16 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
+
 android {
+    signingConfigs {
+        config {
+            storeFile = rootProject.file('release-keystore.jks')
+            storePassword = 'key123'
+            keyAlias = 'key123'
+            keyPassword = 'key123'
+        }
+    }
     compileSdkVersion 29
 
     sourceSets {
@@ -50,8 +59,7 @@ android {
     }
 
     defaultConfig {
-        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId "com.netguru.netguru_flutter_template"
+        applicationId "com.gabice.flutter_app"
         applicationIdSuffix dartEnvironmentVariables.ENV_PACKAGE_SUFFIX
         minSdkVersion 16
         targetSdkVersion 29
@@ -63,9 +71,7 @@ android {
 
     buildTypes {
         release {
-            // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
-            signingConfig signingConfigs.debug
+            signingConfig signingConfigs.config
         }
     }
 }
