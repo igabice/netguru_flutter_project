@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:netguru_flutter_template/feature/splash/splash_bloc.dart';
-import 'package:netguru_flutter_template/injection/injection.dart';
-import 'package:netguru_flutter_template/widget/custom_loading/custom_loading.dart';
-import 'package:netguru_flutter_template/values/app_theme.dart';
+import 'package:flutter_app/feature/splash/splash_bloc.dart';
+import 'package:flutter_app/injection/injection.dart';
+import 'package:flutter_app/widget/custom_loading/custom_loading.dart';
+import 'package:flutter_app/values/app_theme.dart';
 
-import '../../values/dimensions.dart';
 
 class SplashScreen extends StatefulWidget {
   @override

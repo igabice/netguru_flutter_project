@@ -2,7 +2,7 @@
 
 ### Prerequisites
 Things that you need to have before starting working with a project.
-<!-- This should be rather obvois for Flutter dev, but could be helpful for anyone else. -->
+<!-- This should be rather obvious for Flutter dev, but could be helpful for anyone else. -->
 
 - [Install Flutter](https://flutter.dev/docs/get-started/install) with:
     - Install Xcode
@@ -15,6 +15,13 @@ Things that you need to have before starting working with a project.
 Step by step instructions what you need to do after fulfilling the prerequisites to launch the application.
 
 1. Clone project from GIT
-5. Run `flutter pub get`.
-6. Run `flutter pub run build_runner build --delete-conflicting-outputs`.
-8. Run the app and that should be it.
+2. Run `flutter pub get`.
+3. Run `flutter pub run build_runner build --delete-conflicting-outputs`.
+4. Run the app and that should be it.
+
+
+### Run Tests
+- Test SplashScreen:
+flutter test test/feature/splash/splash_test.dart
+- Test MainScreen:
+flutter test test/feature/main/main_test.dart

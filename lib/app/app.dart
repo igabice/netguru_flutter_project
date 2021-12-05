@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:netguru_flutter_template/values/app_theme.dart';
+import 'package:flutter_app/values/app_theme.dart';
 
 import '../feature/splash/splash_screen.dart';
 import '../injection/injection.dart';

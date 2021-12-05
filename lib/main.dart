@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:netguru_flutter_template/injection/injection.dart';
+import 'package:flutter_app/injection/injection.dart';
 
 import 'app/app.dart';
 import 'app/environment/environment.dart';
